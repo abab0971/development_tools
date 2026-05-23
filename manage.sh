@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define Tool Version
-VERSION="1.1.0"
+VERSION="1.2.0"
 
 # Get the absolute path of manage.sh directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
