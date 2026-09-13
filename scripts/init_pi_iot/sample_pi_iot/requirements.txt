@@ -1,0 +1,25 @@
+# ==============================================================================
+# File: requirements.txt
+# Brief: Python 專案依賴套件清單
+# Author: Jim Hsu (aba0971@gmail.com)
+# Created Time: 2026-05-23 18:10:01
+# Copyright: Copyright (c) 2026 CQI (CHENGQI Co., Ltd.)
+#            All rights reserved.
+# Notice: 
+# ==============================================================================
+
+# 開發工具、組態驗證與框架
+fastapi
+uvicorn
+pydantic-settings
+paho-mqtt
+smbus2
+pyserial
+cryptography
+
+# 樹莓派實體硬體核心
+gpiozero
+rpi-lgpio
+
+# OTA 更新與檔案傳輸協定
+tftpy

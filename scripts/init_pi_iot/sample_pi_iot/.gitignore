@@ -1,0 +1,54 @@
+# ==============================================================================
+# File: .gitignore
+# Brief: Git 版本控制忽略檔案清單
+# Author: Jim Hsu (aba0971@gmail.com)
+# Created Time: 2026-05-27 02:45:00
+# Copyright: Copyright (c) 2026 CQI (CHENGQI Co., Ltd.)
+#            All rights reserved.
+# Notice: 
+# ==============================================================================
+
+# Python 執行快取與編譯檔
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 本地虛擬環境
+venv/
+.venv/
+env/
+ENV/
+
+# 模擬測試觸發文字檔 (避免把開發時的測試檔推進 Git)
+*trigger.txt
+
+# 應用程式運行產生的 SQLite 實體資料庫 (保留 data/ 目錄但忽略 .db 檔)
+data/
+data/*.db
+data/pi.db
+
+# 整合開發環境 (IDE) 暫存設定
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系統暫存
+.DS_Store
+Thumbs.db
+# Microsoft Office temporary files (防範 Word 暫存檔污染儲存庫)
+docs/**/~$*.docx
+docs/**/~$*.xlsx
+docs/**/~$*.pptx
+
+# 底層硬體庫產生的暫存通訊檔案
+.lgd-*
+*.sock
+
+# 打包產出的輸出資料夾
+output/
+
+# 機密環境變數檔
+.env

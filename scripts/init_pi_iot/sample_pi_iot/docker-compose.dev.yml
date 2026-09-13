@@ -1,0 +1,42 @@
+# ==============================================================================
+# File: docker-compose.dev.yml
+# Brief: WSL 開發環境 (PC) 專用的多容器服務編排設定檔
+# Author: Jim Hsu (aba0971@gmail.com)
+# Created Time: 2026-09-14 00:00:00
+# Copyright: Copyright (c) 2026 CQI (CHENGQI Co., Ltd.)
+#            All rights reserved.
+# Notice: 本檔案為通用的 IoT 核心開發環境配置範本
+# ==============================================================================
+name: __PROJ_NAME_LOWER__
+
+services:
+  # 樹莓派 Python 開發環境 (WSL 模擬節點)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspace
+      - ./data:/workspace/data
+    network_mode: host
+    privileged: true
+    environment:
+      - PYTHONUNBUFFERED=1              # 強制 Python 即時沖刷 Log 輸出
+      - MOCK_HARDWARE=true              # 告訴程式目前在 WSL 開發環境，啟用模擬器
+      - TZ=Asia/Taipei                  # 設定時區為台北
+      - MQTT_BROKER=mosquitto
+      - DB_TYPE=sqlite                # 讓程式知道目前使用 SQLite
+      - DB_PATH=/workspace/data/pi.db # 指定 SQLite 檔案路徑
+    depends_on:
+      - mosquitto
+
+  # 輕量化 MQTT Broker (預留)
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:

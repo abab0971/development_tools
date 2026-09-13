@@ -1,0 +1,7 @@
+{
+  "project_name": "__PROJECT_NAME__",
+  "flavor": "iot_client",
+  "version": "v0.1.0",
+  "commit_hash": "DEV_LOCAL",
+  "build_date": "DEV_LOCAL"
+}
